@@ -328,22 +328,25 @@ Revenue MoM %    = VAR cur = [Total Revenue]
 ### Estructura del dashboard — 3 páginas
 
 **Página 1 — Executive Summary**
-- 5 tarjetas KPI: Revenue, Margin, Margin %, Orders, Avg Ticket
+- 4 tarjetas KPI: Revenue, Margin, Orders, Avg Ticket
 - Ventas por mes (barras + línea de tendencia MoM)
 - Ventas por canal (dona)
-- Filtros: rango de fecha, canal, categoría, país
+- Filtros: rango de fecha, canal, categoría
+<img width="1358" height="767" alt="image" src="https://github.com/user-attachments/assets/70c53ad4-9528-43e4-b544-b564eea99466" />
 
 **Página 2 — Clientes & Segmentos**
-- Top 10 clientes por ingresos (barra horizontal)
-- Revenue por segmento de cliente
-- Mapa de revenue por país
+- Top 10 clientes por ingresos
+- Ventas por segmento de cliente
+- Mapa de ventas por país
 - Filtros: segmento, país
+<img width="1347" height="757" alt="image" src="https://github.com/user-attachments/assets/54aed52d-6005-4449-a9bf-7c94d3ec8bcb" />
 
 **Página 3 — Productos & Calidad**
-- Top 10 productos por revenue (barra horizontal)
-- Margen por categoría (cascada o barras agrupadas)
+- Top 10 productos por ventas 
+- Margen por categoría
 - Tabla de alertas: pedidos `is_below_cost = TRUE` para auditoría
 - Filtros: categoría, estado activo/inactivo
+<img width="1348" height="755" alt="image" src="https://github.com/user-attachments/assets/08f1f7fb-9783-40e1-bd4c-e7346ed2ea7f" />
 
 > El archivo `RoseAmor_Dashboard.pbix` está en la raíz del repositorio.
 
