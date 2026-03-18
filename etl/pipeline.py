@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
-# --- Config ---
+# Config
 
 BASE_DIR   = Path(__file__).resolve().parent.parent
 RAW_DIR    = BASE_DIR / "data" / "raw"
@@ -19,7 +19,7 @@ logging.basicConfig(
 )
 log = logging.getLogger("roseamor.pipeline")
 
-# --- Extract ---
+# Extract
 
 def load_raw(conn: sqlite3.Connection) -> dict[str, pd.DataFrame]:
     log.info("── LAYER 1: Loading raw CSVs ──")
@@ -51,7 +51,7 @@ def _qa_report(df: pd.DataFrame, label: str) -> dict:
         "issues":     {},
     }
 
-# --- Transform ---
+# Transform
 
 def stage_customers(raw_df: pd.DataFrame, conn: sqlite3.Connection) -> pd.DataFrame:
     log.info("── LAYER 2: Staging customers ──")
@@ -169,7 +169,7 @@ def stage_orders(raw_df: pd.DataFrame, conn: sqlite3.Connection) -> pd.DataFrame
     log.info(f"  stg_orders: {len(df):,} clean rows  | issues={issues}")
     return df
 
-# --- Validation ---
+# Validation
 
 def quarantine_orders(
     stg_orders: pd.DataFrame,
@@ -226,7 +226,7 @@ def quarantine_orders(
     )
     return df
 
-# --- Load (Marts) ---
+# Load (Marts)
 
 def build_marts(
     stg_customers: pd.DataFrame,
@@ -344,7 +344,7 @@ def build_marts(
 
     log.info("── LAYER 3 complete ──")
 
-# --- Main ---
+# Main
 
 def run_pipeline() -> None:
     log.info("═" * 60)
