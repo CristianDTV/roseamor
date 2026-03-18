@@ -247,10 +247,13 @@ def build_marts(
     dim_product.to_sql("dim_product", conn, if_exists="replace", index=False)
     log.info(f"  dim_product: {len(dim_product):,} rows")
 
+    min_year = stg_orders["order_date"].min().year
+    max_year = stg_orders["order_date"].max().year
+    
     dates = pd.date_range(
-        start=stg_orders["order_date"].min(),
-        end=stg_orders["order_date"].max(),
-        freq="D",
+        start=f"{min_year}-01-01",
+        end=f"{max_year}-12-31",
+        freq="D"
     )
     dim_date = pd.DataFrame({
         "date_id":      dates.strftime("%Y%m%d").astype(int),
